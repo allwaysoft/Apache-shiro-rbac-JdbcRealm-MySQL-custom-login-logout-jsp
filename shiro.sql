@@ -28,10 +28,26 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT IGNORE INTO `permissions` (`name`, `description`) VALUES
 	('DELETE', 'delete'),
+	('permission-create', 'permission-create'),
+	('permission-delete', 'permission-delete'),
+	('permission-index', 'permission-index'),
+	('permission-update', 'permission-update'),
 	('READ', 'read'),
+	('role-create', 'role-create'),
+	('role-delete', 'role-delete'),
+	('role-index', 'role-index'),
+	('role-permission-create', 'role-permission-create'),
+	('role-permission-delete', 'role-permission-delete'),
+	('role-permission-index', 'role-permission-index'),
+	('role-permission-update', 'role-permission-update'),
+	('role-update', 'role-update'),
 	('user-create', 'user-create'),
 	('user-delete', 'user-delete'),
 	('user-index', 'user-index'),
+	('user-role-create', 'user-role-create'),
+	('user-role-delete', 'user-role-delete'),
+	('user-role-index', 'user-role-index'),
+	('user-role-update', 'user-role-update'),
 	('user-update', 'user-update'),
 	('WRITE', 'write');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
@@ -63,12 +79,33 @@ CREATE TABLE IF NOT EXISTS `roles_permissions` (
 -- 正在导出表  shiro.roles_permissions 的数据：~4 rows (大约)
 /*!40000 ALTER TABLE `roles_permissions` DISABLE KEYS */;
 INSERT IGNORE INTO `roles_permissions` (`role_name`, `permission`) VALUES
+	('ADMIN', 'permission-create'),
+	('ADMIN', 'permission-delete'),
+	('ADMIN', 'permission-index'),
+	('ADMIN', 'permission-update'),
+	('ADMIN', 'role-create'),
+	('ADMIN', 'role-delete'),
+	('ADMIN', 'role-index'),
+	('ADMIN', 'role-permission-create'),
+	('ADMIN', 'role-permission-delete'),
+	('ADMIN', 'role-permission-index'),
+	('ADMIN', 'role-permission-update'),
+	('ADMIN', 'role-update'),
 	('ADMIN', 'user-create'),
 	('ADMIN', 'user-delete'),
 	('ADMIN', 'user-index'),
+	('ADMIN', 'user-role-create'),
+	('ADMIN', 'user-role-delete'),
+	('ADMIN', 'user-role-index'),
+	('ADMIN', 'user-role-update'),
 	('ADMIN', 'user-update'),
+	('USER_P1', 'permission-index'),
+	('USER_P1', 'role-index'),
+	('USER_P1', 'role-permission-index'),
 	('USER_P1', 'user-create'),
 	('USER_P1', 'user-index'),
+	('USER_P1', 'user-role-index'),
+	('USER_P1', 'user-update'),
 	('USER_P2', 'user-index'),
 	('USER_P2', 'user-update');
 /*!40000 ALTER TABLE `roles_permissions` ENABLE KEYS */;
@@ -102,6 +139,8 @@ CREATE TABLE IF NOT EXISTS `users_roles` (
 /*!40000 ALTER TABLE `users_roles` DISABLE KEYS */;
 INSERT IGNORE INTO `users_roles` (`username`, `role_name`) VALUES
 	('admin', 'ADMIN'),
+	('admin', 'USER_P1'),
+	('test', 'ADMIN'),
 	('u1', 'USER_P1'),
 	('u2', 'USER_P2');
 /*!40000 ALTER TABLE `users_roles` ENABLE KEYS */;
