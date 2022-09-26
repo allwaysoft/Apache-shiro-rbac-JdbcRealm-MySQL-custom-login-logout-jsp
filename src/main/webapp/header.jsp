@@ -8,14 +8,7 @@
 
 
 
-<%
-    //redirect user to home page if already logged in
-    if ((String) session.getAttribute("username") == null) {
-        response.sendRedirect("index.jsp");
-    }
 
-
-%>
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

@@ -14,8 +14,6 @@
     <head>
         <title>请登录</title>
 
-        <script src="jsencrypt.min.js"></script>
-
         <script type="text/javascript">
             function reloadImg() {
                 var timestamp = new Date().getTime();
