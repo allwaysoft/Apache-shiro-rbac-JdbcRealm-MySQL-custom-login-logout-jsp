@@ -79,9 +79,7 @@
                 <tr>
                     <td><%=StringEscapeUtils.escapeHtml4(rs.getString("username"))%></td>
                     <td><%=StringEscapeUtils.escapeHtml4(rs.getString("role_name"))%></td>
-                    <td><a
-                            href="<%=response.encodeURL("user-role-update.jsp?username=" + rs.getString("username"))%>"><button
-                                type="button" class="update">修改</button></a><a href="<%=response.encodeURL("user-role-delete.jsp?username=" + rs.getString("username"))%>"><button
+                    <td><a href="<%=response.encodeURL("user-role-delete.jsp?username=" + rs.getString("username") + "&role_name=" + rs.getString("role_name"))%>"><button
                                 type="button" class="delete">删除</button></a></td>
                 </tr>
                 <%
